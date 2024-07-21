@@ -399,10 +399,10 @@ class Transcription(pl.LightningModule):
         logger.log(f"Test/Flat_notewise_w_offset", flat_f1_mean_note_w_off, on_step=False, on_epoch=True, rank_zero_only=True)
         
     def predict_step(self, batch, batch_idx, plugin_ids=None, return_roll=False):
-        
         conditions = torch.eye(self.plugin_labels_num) # assume all instruments are presented
         conditions = conditions[:-1] # remove the Empty condition
-        conditions = conditions.to('cuda' if len(self.cfg.trainer.gpus)>0 else 'cpu')
+        plugin_ids = plugin_ids.to('cpu')
+        # conditions = conditions.to('cuda' if len(self.cfg.trainer.gpus)>0 else 'cpu')
         # print(333)
         # print(len(self.cfg.trainer.gpus)>0)
         # print(333)
