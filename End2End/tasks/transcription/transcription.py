@@ -402,12 +402,26 @@ class Transcription(pl.LightningModule):
         
         conditions = torch.eye(self.plugin_labels_num) # assume all instruments are presented
         conditions = conditions[:-1] # remove the Empty condition
-
+        # conditions = conditions.to('cuda' if len(self.cfg.trainer.gpus)>0 else 'cpu')
+        # print(333)
+        # print(len(self.cfg.trainer.gpus)>0)
+        # print(333)
+        # print(conditions.device)
+        # print(333)
+        # conditions.to('cuda')
+        # print(conditions.device)
+        # print(333)
         if type(plugin_ids)==torch.Tensor:
             if len(plugin_ids) == 0: # When there is no instrument detected
                 plugin_ids = torch.arange(self.plugin_labels_num-1)
                 conditions = conditions[plugin_ids]
             else:
+                # print(222)
+                # print(conditions.device)
+                # print(222)
+                # print(plugin_ids.device)
+                # print(222)
+                # plugin_ids=plugin_ids.to('cpu')
                 conditions = conditions[plugin_ids]
         elif plugin_ids==None:      
             plugin_ids = torch.arange(self.plugin_labels_num-1)

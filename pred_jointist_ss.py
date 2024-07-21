@@ -207,8 +207,12 @@ def main(cfg):
         logger=logger)
 
     # Fit, evaluate, and save checkpoints.
+    # print(111)
+    # print(jointist.device)
+    # print(111)
+    # jointist=jointist.to('cuda' if len(cfg.trainer.gpus)>0 else 'cpu')
     predictions = trainer.predict(jointist, pred_loader)
-#     print(predictions)
+    print(predictions)
     
 
 if __name__ == '__main__':
