@@ -21,7 +21,8 @@
             "justMyCode": true,
             "args": [
                 "audio_path=/home/mohanzhang/GitRepos/multiinstrument_transcription/audio_files",
-                "audio_ext=wav gpus=[0]",
+                "audio_ext=wav",
+                "gpus=[0]",
             ]
         },
 
