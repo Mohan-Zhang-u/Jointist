@@ -20,8 +20,22 @@
             "cwd": "${workspaceFolder}",
             "justMyCode": true,
             "args": [
-                "audio_path=/home/mohanzhang/GitRepos/multiinstrument_transcription/audio_files",
+                "audio_path=/home/mohanzhang/GitRepos/multiinstrument_transcription/audio_files/test",
                 "audio_ext=wav",
+                "gpus=[0]",
+            ]
+        },
+        {
+            "name": "Python: pred_jointist_ss.py mp3",
+            "type": "python",
+            "request": "launch",
+            "program": "pred_jointist_ss.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true,
+            "args": [
+                "audio_path=/home/mohanzhang/GitRepos/multiinstrument_transcription/audio_files/test",
+                "audio_ext=mp3",
                 "gpus=[0]",
             ]
         },

@@ -206,6 +206,7 @@ class ConvBlock(nn.Module):
         x = input
         x = F.relu_(self.bn1(self.conv1(x)))
         x = F.relu_(self.bn2(self.conv2(x)))
+        # try:
         if pool_type == 'max':
             x = F.max_pool2d(x, kernel_size=pool_size)
         elif pool_type == 'avg':
@@ -218,7 +219,8 @@ class ConvBlock(nn.Module):
             pass # No pooling
         else:
             raise Exception('Incorrect argument!')
-
+        # except RuntimeError as e:
+        #     return x
         return x
     
 class BackboneBase(nn.Module):

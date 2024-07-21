@@ -402,7 +402,7 @@ class Transcription(pl.LightningModule):
         
         conditions = torch.eye(self.plugin_labels_num) # assume all instruments are presented
         conditions = conditions[:-1] # remove the Empty condition
-        # conditions = conditions.to('cuda' if len(self.cfg.trainer.gpus)>0 else 'cpu')
+        conditions = conditions.to('cuda' if len(self.cfg.trainer.gpus)>0 else 'cpu')
         # print(333)
         # print(len(self.cfg.trainer.gpus)>0)
         # print(333)
